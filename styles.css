@@ -2,14 +2,15 @@
     --bg-color: #0f172a;
     --text-primary: #f8fafc;
     --text-secondary: #94a3b8;
-    --accent-color: #38bdf8; /* Sky Blue */
+    --accent-color: #38bdf8;
+    /* Sky Blue */
     --accent-glow: rgba(56, 189, 248, 0.4);
     --card-bg: rgba(30, 41, 59, 0.7);
     --card-border: rgba(255, 255, 255, 0.1);
     --danger-color: #f43f5e;
     --success-color: #22c55e;
     --font-main: 'Inter', sans-serif;
-    
+
     --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
@@ -67,15 +68,21 @@ body {
 }
 
 @keyframes drift {
-    from { transform: translate(0, 0); }
-    to { transform: translate(30px, 30px); }
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(30px, 30px);
+    }
 }
 
 .app-container {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
-    padding-bottom: 100px; /* Space for input controls */
+    padding-bottom: 100px;
+    /* Space for input controls */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -214,7 +221,7 @@ input[type="text"]:focus {
     transform: translateY(0);
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 100;
-    box-shadow: 0 -10px 40px rgba(0,0,0,0.5);
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
 }
 
 .input-controls.hidden {
@@ -272,7 +279,8 @@ input[type="text"]:focus {
 }
 
 .action-btn {
-    background: rgba(244, 63, 94, 0.1); /* Red tint for delete */
+    background: rgba(244, 63, 94, 0.1);
+    /* Red tint for delete */
     color: var(--danger-color);
 }
 
@@ -333,6 +341,7 @@ input[type="text"]:focus {
     gap: 10px;
 }
 
+
 .btn-secondary {
     background: rgba(255, 255, 255, 0.1);
     color: white;
@@ -360,4 +369,140 @@ input[type="text"]:focus {
     padding: 8px;
     cursor: pointer;
     text-decoration: underline;
+}
+
+/* Setup Modal Styles */
+.setup-group {
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+.setup-group label {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.target-options,
+.mode-options {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.target-btn,
+.mode-btn {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    padding: 12px 0;
+    color: var(--text-primary);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.target-btn.active,
+.mode-btn.active {
+    background: var(--accent-color);
+    color: #0f172a;
+    border-color: var(--accent-color);
+}
+
+.hidden {
+    display: none !important;
+}
+
+.full-width {
+    width: 100%;
+}
+
+
+/* Granular Input Styles */
+.granular-inputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.dart-input {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    transition: all 0.2s;
+}
+
+.dart-input.active {
+    border-color: var(--accent-color);
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--text-primary);
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.1);
+}
+
+.dart-input.filled {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.dart-sum {
+    margin-left: 10px;
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+#granular-sum {
+    color: var(--accent-color);
+    font-size: 1.5rem;
+}
+
+/* Delete Player Button */
+.delete-player-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(244, 63, 94, 0.1);
+    color: var(--danger-color);
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s, background 0.2s;
+}
+
+.player-card:hover .delete-player-btn {
+    opacity: 1;
+}
+
+.delete-player-btn:hover {
+    background: var(--danger-color);
+    color: white;
+}
+
+/* Start Button Large */
+#start-game-btn {
+    padding: 18px 0;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
 }
