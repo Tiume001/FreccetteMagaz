@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freccette Scorekeeper</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Meta tags for PWA-like experience -->
+    <meta name="theme-color" content="#121212">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+    <div class="background-globes">
+        <div class="globe globe-1"></div>
+        <div class="globe globe-2"></div>
+    </div>
+
+    <div class="app-container">
+        <header class="app-header">
+            <h1>Freccette <span class="accent">Pro</span></h1>
+            <button id="reset-btn" class="icon-btn" aria-label="Reset Partita">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 12"/><path d="M3 3v9h9"/></svg>
+            </button>
+        </header>
+
+        <main id="game-board" class="game-board">
+            <!-- Dynamic Player Content Will Go Here -->
+            <div id="players-container" class="players-grid"></div>
+            
+            <div id="add-player-section" class="add-player-section">
+                <input type="text" id="new-player-name" placeholder="Nome Giocatore" maxlength="15">
+                <button id="add-player-btn" class="btn-primary">Aggiungi</button>
+            </div>
+        </main>
+
+        <section id="input-controls" class="input-controls hidden">
+            <div class="control-header">
+                <span id="active-player-name">Seleziona Giocatore</span>
+                <button id="close-input-btn" class="icon-btn-small">×</button>
+            </div>
+            <div class="numpad">
+                <button class="num-btn" data-val="1">1</button>
+                <button class="num-btn" data-val="2">2</button>
+                <button class="num-btn" data-val="3">3</button>
+                <button class="num-btn" data-val="4">4</button>
+                <button class="num-btn" data-val="5">5</button>
+                <button class="num-btn" data-val="6">6</button>
+                <button class="num-btn" data-val="7">7</button>
+                <button class="num-btn" data-val="8">8</button>
+                <button class="num-btn" data-val="9">9</button>
+                <button class="num-btn action-btn" id="undo-btn">⌫</button>
+                <button class="num-btn" data-val="0">0</button>
+                <button class="num-btn confirm-btn" id="confirm-score-btn">OK</button>
+            </div>
+            <div class="current-input-display">
+                <span id="current-input-value">0</span>
+            </div>
+        </section>
+    </div>
+
+    <!-- Simple Modal for Reset Confirmation -->
+    <div id="reset-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3>Nuova Partita?</h3>
+            <p>Vuoi azzerare solo i punteggi o cancellare tutti i giocatori?</p>
+            <div class="modal-actions">
+                <button id="reset-scores-modal-btn" class="btn-secondary">Solo Punteggi</button>
+                <button id="reset-all-modal-btn" class="btn-danger">Cancella Tutto</button>
+                <button id="cancel-reset-btn" class="btn-text">Annulla</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
